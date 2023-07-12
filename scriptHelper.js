@@ -2,7 +2,7 @@
 require('isomorphic-fetch');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
-    let div = document.getElementById("missionTarget");
+    const div = document.getElementById("missionTarget");
     div.innerHTML = 
                 `<h2>Mission Destination</h2>
                 <ol>
@@ -27,10 +27,6 @@ function validateInput(testInput) {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
-   let pilot = document.getElementById("pilotName");
-   let copilot = document.getElementById("copilotName");
-   let fuelLevel = document.getElementById("fuelLevel");
-   let cargoLevel = document.getElementById("cargoMass");
    let pilotStatus = document.getElementById("pilotStatus");
    let copilotStatus = document.getElementById("copilotStatus");
    let fuelStatus = document.getElementById("fuelStatus");
@@ -43,19 +39,17 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
    } else {
     pilotStatus.innerHTML = `Pilot ${pilot} Ready`;
     copilotStatus.innerHTML = `Co-pilot ${copilot} Ready`;
+    list.style.faultyItems = "visible";
     if (fuelLevel < 10000 && cargoLevel >= 10000) {
-        list.style.faultyItems = "visible";
         fuelStatus.innerHTML = `Fuel level too low for launch`;
         cargoStatus.innerHTML = `Cargo mass too high for launch`;
         launchStatus.innerHTML = `Shuttle not ready to launch`;
         launchStatus.style.color = '#C7254E';
     } else if (fuelLevel >= 10000 && cargoLevel >= 10000) {
-        list.style.faultyItems = "visible";
         cargoStatus.innerHTML = `Cargo mass too high for launch`;
         launchStatus.innerHTML = `Shuttle not ready to launch`;
         launchStatus.style.color = '#C7254E';
     } else if (fuelLevel < 10000 && cargoLevel < 10000) {
-        list.style.faultyItems = "visible";
         fuelStatus.innerHTML = `Fuel level too low for launch`;
         launchStatus.innerHTML = `Shuttle not ready to launch`;
         launchStatus.style.color = '#C7254E';
