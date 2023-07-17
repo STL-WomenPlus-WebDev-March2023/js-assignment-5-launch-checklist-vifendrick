@@ -1,11 +1,11 @@
 // Write your JavaScript code here!
 
-// const { myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
+const { myFetch, pickPlanet, addDestinationInfo } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
 
    let listedPlanets;
-   let listedPlanetsResponse = myFetch()
+   let listedPlanetsResponse = myFetch();
    listedPlanetsResponse.then(function (result) {
        listedPlanets = result;
        console.log(listedPlanets);
@@ -17,10 +17,8 @@ window.addEventListener("load", function() {
    })
    
    let list = document.getElementById("faultyItems");
-   list.style.visibility = "hidden";
-   let form = document.querySelector("form");
 
-   form.addEventListener("formSubmit", function(event) {
+   form.addEventListener("sumbit", function(event) {
     event.preventDefault();
     let pilotInput = document.querySelector("input[name=pilotName]");
     let pilot = pilotInput.value;
