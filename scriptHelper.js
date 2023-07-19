@@ -16,16 +16,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                 `;           
 }
 
-let pilotInput = document.querySelector("input[name=pilotName]");
-let pilot = pilotInput.value;
-let copilotInput = document.querySelector("input[name=copilotName]");
-let copilot = copilotInput.value;
-let fuelInput = document.querySelector("input[name=fuelLevel");
-let fuelLevel = Number(fuelInput.value);
-let cargoInput = document.querySelector("input[name=cargoMass]");
-let cargoLevel = Number(cargoInput.value);
-
-
 function validateInput(testInput) {
    let checkNumber = Number(testInput);
    if (testInput === "") {
